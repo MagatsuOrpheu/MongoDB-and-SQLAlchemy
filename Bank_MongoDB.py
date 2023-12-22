@@ -92,7 +92,7 @@ print("\nRetornando a primeira ocorrência na coleçao bank_accounts: ")
 pprint.pprint(bank_accounts.find_one())
 
 print("\nRetornando uma ocorrência usando um filtro na coleção bank_accounts: ")
-pprint.pprint(bank_accounts.find_one({"Titular":'Jonathan Melo'}))
+pprint.pprint(bank_accounts.find_one({"Titular": 'Jonathan Melo'}))
 
 print("\nIterando sobre a coleção: ")
 for doc in bank_accounts.find():
