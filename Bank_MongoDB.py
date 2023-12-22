@@ -8,7 +8,7 @@ client = pyM.MongoClient(
 db = client.bank_DB
 bank_accounts = db.bank_accounts
 
-"""
+# Criando um modelo para ser seguido posteriormente e armazenando em uma coleção chamada account model
 model = {
     # Informações sobre o cliente
     "Titular": "nome do cliente",
@@ -22,14 +22,11 @@ model = {
     "Saldo": 'saldo do cliente'
 }
 
-criando um modelo de base para o registro dos clientes
-
 account_model = db.account_model
 model_id = account_model.insert_one(model).inserted_id
-"""  # Criando um modelo para ser seguido posteriormente e armazenando em uma coleção chamada account model
 
 
-"""
+# inserindo o primeiro documento na coleção bank_accounts
 user_01 = {
     # Informações sobre o cliente
     "Titular": "Fernanda da Silva",
@@ -43,11 +40,10 @@ user_01 = {
     "Saldo": 1277.91
 }
 
-# inserindo o primeiro usuario na nossa coleção
 user_01_id = bank_accounts.insert_one(user_01).inserted_id
 print(user_01_id)
 
-
+# Adicionando documentos na coleção bank_accounts
 insert_3_users = [
     {
         # Informações sobre o cliente
@@ -89,10 +85,7 @@ insert_3_users = [
 
 users_id = bank_accounts.insert_many(insert_3_users).inserted_ids
 print(users_id)
-"""  # Criando uma coleção chamada bank_accounts e adicionando documentos na mesma
 
-
-"""
 Recuperando docs
 
 print("\nRetornando a primeira ocorrência na coleçao bank_accounts: ")
@@ -108,4 +101,3 @@ for doc in bank_accounts.find():
 print("\nRetornando somente os que possuem acima de R$ 5000: ")
 for doc in bank_accounts.find({"Saldo": {'$gte': 5000}}):
     pprint.pprint(doc)
-"""
